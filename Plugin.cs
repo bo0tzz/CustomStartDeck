@@ -1,4 +1,5 @@
 ﻿using BepInEx;
+using BepInEx.Configuration;
 using HarmonyLib;
 using Relics;
 using System.Collections.Generic;
@@ -10,8 +11,21 @@ namespace CustomStartRelics
     public class Plugin : BaseUnityPlugin
     {
         private readonly Harmony harmony = new Harmony(PluginInfo.PLUGIN_GUID);
+
+        private ConfigEntry<string> wantedRelicsCfg;
+
+        public static List<string> wantedRelicEffects = new List<string>();
+
         private void Awake()
         {
+            wantedRelicsCfg = Config.Bind("Relics", "StartRelics", "", "What relics to start every run with");
+            if (!wantedRelicsCfg.Value.IsNullOrWhiteSpace())
+            {
+                foreach (string wantedRelic in wantedRelicsCfg.Value.Split(','))
+                {
+                    wantedRelicEffects.Add(wantedRelic.Trim());
+                }
+            }
             harmony.PatchAll();
             Logger.LogInfo($"Plugin {PluginInfo.PLUGIN_GUID} is loaded!");
         }
@@ -22,16 +36,7 @@ namespace CustomStartRelics
     {
         public static void Postfix(RelicManager __instance)
         {
-            UnityEngine.Debug.Log("Available relics:");
-            foreach (RelicSet set in new List<RelicSet>() { __instance._commonRelicPool, __instance._rareRelicPool, __instance._bossRelicPool})
-            {
-                foreach (Relic relic in set.relics)
-                {
-                    UnityEngine.Debug.Log(relic.englishDisplayName + ": " + relic.effect);
-                }
-            }
-            List<string> wantedRelics = new List<string>() { "BOMB_FORCE_ALWAYS", "UNPOPPABLE_PEGS" };
-            List<Relic> relics = __instance.FindRelicsByEffects(wantedRelics);
+            List<Relic> relics = __instance.FindRelicsByEffects(Plugin.wantedRelicEffects);
             foreach (Relic relic in relics)
             {
                 __instance.AddRelic(relic);
