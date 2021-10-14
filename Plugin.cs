@@ -3,6 +3,7 @@ using BepInEx.Configuration;
 using HarmonyLib;
 using Relics;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace CustomStartRelics
 {
@@ -36,7 +37,7 @@ namespace CustomStartRelics
     {
         public static void Postfix(RelicManager __instance)
         {
-            List<Relic> relics = __instance.FindRelicsByEffects(Plugin.wantedRelicEffects);
+            List<Relic> relics = __instance.FindRelicsByEffects(Plugin.wantedRelicEffects.ToList());
             foreach (Relic relic in relics)
             {
                 __instance.AddRelic(relic);
