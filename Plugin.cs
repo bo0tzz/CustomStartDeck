@@ -8,6 +8,7 @@ using System.Linq;
 namespace CustomStartDeck
 {
     [BepInPlugin(PluginInfo.PLUGIN_GUID, PluginInfo.PLUGIN_NAME, PluginInfo.PLUGIN_VERSION)]
+    [BepInIncompatibility("me.bo0tzz.peglin.CustomStartRelics")]
     [BepInProcess("Peglin.exe")]
     public class Plugin : BaseUnityPlugin
     {
