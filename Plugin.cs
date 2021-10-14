@@ -4,6 +4,7 @@ using HarmonyLib;
 using Relics;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEngine;
 
 namespace CustomStartDeck
 {
@@ -20,6 +21,14 @@ namespace CustomStartDeck
 
         private void Awake()
         {
+
+            GameObject[] allOrbs = Resources.LoadAll<GameObject>("Prefabs/Orbs/");
+            Logger.LogInfo("All orbs:");
+            foreach (GameObject orb in allOrbs)
+            {
+                Logger.LogInfo(orb.name);
+            }
+
             wantedRelicsCfg = Config.Bind("Relics", "StartRelics", "", "What relics to start every run with");
             if (!wantedRelicsCfg.Value.IsNullOrWhiteSpace())
             {
@@ -43,6 +52,27 @@ namespace CustomStartDeck
             {
                 __instance.AddRelic(relic);
             }
+        }
+    }
+    
+    [HarmonyPatch(typeof(GameInit), "Start")]
+    public class GameInitPatch
+    {
+        public static void Postfix(DeckManager ____deckManager)
+        {
+            Debug.Log("Running gameinit postfix");
+            List<string> startDeck = new List<string>() { "FireBall-Lv3" };
+            List<GameObject> list = new List<GameObject>();
+            foreach (string str in startDeck)
+            {
+                GameObject gameObject = Resources.Load<GameObject>("Prefabs/Orbs/" + str);
+                if (gameObject == null)
+                {
+                    Debug.LogError("Prefab/Orbs" + str + ".prefab not found when loading deck!");
+                }
+                list.Add(gameObject);
+            }
+            ____deckManager.InstantiateDeck(list);
         }
     }
 }
