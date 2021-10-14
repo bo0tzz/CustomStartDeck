@@ -12,9 +12,10 @@ prevent you from creating new savefiles, crash your computer, or set your house 
 
 ## Configuration
 The mod is configured via the `BepInEx/config/me.bo0tzz.peglin.CustomStartDeck.cfg` file. 
-You can view an example of the file [here](https://github.com/bo0tzz/CustomStartDeck/blob/master/me.bo0tzz.peglin.CustomStartDeck.cfg).
-Basically, pick the all-caps values from the list below and add them, comma separated,
-to the `StartRelics` option in the config file.
+You can view an example of the file [here](https://github.com/bo0tzz/CustomStartDeck/blob/master/me.bo0tzz.peglin.CustomStartDeck.cfg).  
+For relics, pick the all-caps values from the relics list below and add them, comma separated,
+to the `Relics` option in the config file.  
+For orbs, pick the names from the orbs list below and add them to the `Orbs` option.
 
 ## Available relics  
 Strange Brew: POTION_PEGS_COUNT  
@@ -47,3 +48,51 @@ Matryoshka Shell: MATRYOSHKA
 Cursed Mask: CONFUSION_RELIC  
 Sealed Conviction: NO_DISCARD  
 Electropegnet: PEG_MAGNET
+
+## Available orbs
+Bouldorb Lvl1  
+Bouldorb Lvl2  
+Bouldorb Lvl3  
+BrambleBall-Lv1  
+BrambleBall-Lv2  
+BrambleBall-Lv3  
+BuffOrb-Lvl1  
+BuffOrb-Lvl2  
+BuffOrb-Lvl3  
+CritOrb-Lvl1  
+CritOrb-Lvl2  
+CritOrb-Lvl3  
+Dense Orb Lvl1  
+Dense Orb Lvl2  
+Dense Orb Lvl3  
+FireBall-Lv1  
+FireBall-Lv2  
+FireBall-Lv3  
+GhostOrb - Lvl1  
+GhostOrb - Lvl2  
+GhostOrb - Lvl3  
+Healing Orb-Lv1  
+Healing Orb-Lv2  
+Healing Orb-Lv3  
+IceBall-Lv1  
+IceBall-Lv2  
+IceBall-Lv3  
+LightningBall-Lv1  
+LightningBall-Lv2  
+LightningBall-Lv3  
+Matryoshka Lvl1  
+Matryoshka Lvl2  
+Matryoshka Lvl3  
+Memorb-Lvl1  
+Memorb-Lvl2  
+Memorb-Lvl3  
+Oreb-Lvl1  
+Rubber Orb-lvl1  
+Rubber Orb-lvl2  
+Rubber Orb-lvl3  
+ShuffleOrb-Lv1  
+ShuffleOrb-Lv2  
+ShuffleOrb-Lv3  
+StoneOrb-Lvl1  
+StoneOrb-Lvl2  
+StoneOrb-Lvl3  
