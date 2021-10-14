@@ -2,9 +2,9 @@
 
   <PropertyGroup>
     <TargetFramework>net46</TargetFramework>
-    <AssemblyName>CustomStartRelics</AssemblyName>
-	<BepInExPluginGuid>me.bo0tzz.peglin.CustomStartRelics</BepInExPluginGuid>
-    <Description>Start with custom relics!</Description>
+    <AssemblyName>CustomStartDeck</AssemblyName>
+	<BepInExPluginGuid>me.bo0tzz.peglin.CustomStartDeck</BepInExPluginGuid>
+    <Description>Start with custom decks!</Description>
     <Version>1.0.1</Version>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <LangVersion>9.0</LangVersion>

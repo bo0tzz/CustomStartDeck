@@ -5,7 +5,7 @@ using Relics;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace CustomStartRelics
+namespace CustomStartDeck
 {
     [BepInPlugin(PluginInfo.PLUGIN_GUID, PluginInfo.PLUGIN_NAME, PluginInfo.PLUGIN_VERSION)]
     [BepInProcess("Peglin.exe")]
