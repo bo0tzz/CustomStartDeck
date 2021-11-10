@@ -18,7 +18,7 @@ to the `Relics` option in the config file.
 For orbs, pick the names from the orbs list below and add them to the `Orbs` option.
 
 ## Available relics  
-Alchemist's Cookbook: PEG_TO_BOMB
+Alchemist's Cookbook: PEG_TO_BOMB  
 Ambidextionary: ADDITIONAL_DISCARD
 An Apple A Day: MAX_HEALTH_SMALL
 Buckler: NO_DAMAGE_ON_RELOAD
@@ -56,59 +56,59 @@ Wall Chicken: MAX_HEALTH_MEDIUM
 
 
 ## Available orbs
-BlindOrb-Lvl1
-BlindOrb-Lvl2
-BlindOrb-Lvl3
-Bouldorb Lvl1
-Bouldorb Lvl2
-Bouldorb Lvl3
-BrambleBall-Lv1
-BrambleBall-Lv2
-BrambleBall-Lv3
-BuffOrb-Lvl1
-BuffOrb-Lvl2
-BuffOrb-Lvl3
-Daggorb-Lvl1
-Daggorb-Lvl2
-Daggorb-Lvl3
-DebuffOrb-Lvl1
-DebuffOrb-Lvl2
-DebuffOrb-Lvl3
-Dense Orb Lvl1
-Dense Orb Lvl2
-Dense Orb Lvl3
-Egg-Lvl1
-FireBall-Lv1
-FireBall-Lv2
-FireBall-Lv3
-GhostOrb - Lvl1
-GhostOrb - Lvl2
-GhostOrb - Lvl3
-Healing Orb-Lv1
-Healing Orb-Lv2
-Healing Orb-Lv3
-IceBall-Lv1
-IceBall-Lv2
-IceBall-Lv3
-LightningBall-Lv1
-LightningBall-Lv2
-LightningBall-Lv3
-Matryoshka Lvl1
-Matryoshka Lvl2
-Matryoshka Lvl3
-Memorb-Lvl1
-Memorb-Lvl2
-Memorb-Lvl3
-Oreb-Lvl1
-Rubber Orb-lvl1
-Rubber Orb-lvl2
-Rubber Orb-lvl3
-ShuffleOrb-Lv1
-ShuffleOrb-Lv2
-ShuffleOrb-Lv3
-Splatorb-Lvl1
-Splatorb-Lvl2
-Splatorb-Lvl3
-StoneOrb-Lvl1
-StoneOrb-Lvl2
-StoneOrb-Lvl3 
+BlindOrb-Lvl1  
+BlindOrb-Lvl2  
+BlindOrb-Lvl3  
+Bouldorb Lvl1  
+Bouldorb Lvl2  
+Bouldorb Lvl3  
+BrambleBall-Lv1  
+BrambleBall-Lv2  
+BrambleBall-Lv3  
+BuffOrb-Lvl1  
+BuffOrb-Lvl2  
+BuffOrb-Lvl3  
+Daggorb-Lvl1  
+Daggorb-Lvl2  
+Daggorb-Lvl3  
+DebuffOrb-Lvl1  
+DebuffOrb-Lvl2  
+DebuffOrb-Lvl3  
+Dense Orb Lvl1  
+Dense Orb Lvl2  
+Dense Orb Lvl3  
+Egg-Lvl1  
+FireBall-Lv1  
+FireBall-Lv2  
+FireBall-Lv3  
+GhostOrb - Lvl1  
+GhostOrb - Lvl2  
+GhostOrb - Lvl3  
+Healing Orb-Lv1  
+Healing Orb-Lv2  
+Healing Orb-Lv3  
+IceBall-Lv1  
+IceBall-Lv2  
+IceBall-Lv3  
+LightningBall-Lv1  
+LightningBall-Lv2  
+LightningBall-Lv3  
+Matryoshka Lvl1  
+Matryoshka Lvl2  
+Matryoshka Lvl3  
+Memorb-Lvl1  
+Memorb-Lvl2  
+Memorb-Lvl3  
+Oreb-Lvl1  
+Rubber Orb-lvl1  
+Rubber Orb-lvl2  
+Rubber Orb-lvl3  
+ShuffleOrb-Lv1  
+ShuffleOrb-Lv2  
+ShuffleOrb-Lv3  
+Splatorb-Lvl1  
+Splatorb-Lvl2  
+Splatorb-Lvl3  
+StoneOrb-Lvl1  
+StoneOrb-Lvl2  
+StoneOrb-Lvl3   
