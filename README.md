@@ -52,7 +52,7 @@ Suffer the Sling: BASIC_STONE_BONUS_DAMAGE
 Super Boots: SUPER_BOOTS  
 Tactical Treat: SHUFFLE_REFRESH_PEG  
 Unicorn Horn?: LONGER_AIMER  
-Wall Chicken: MAX_HEALTH_MEDIUM  s
+Wall Chicken: MAX_HEALTH_MEDIUM  
 
 ## Available orbs
 BlindOrb-Lvl1  
