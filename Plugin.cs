@@ -27,7 +27,7 @@ namespace CustomStartDeck
         private void Awake()
         {
             wantedRelicsCfg = Config.Bind("CustomDeck", "Relics", "", "What relics to start every run with");
-            wantedOrbsCfg = Config.Bind("CustomDeck", "Orbs", "StoneOrb-Lvl1, StoneOrb-Lvl1, StoneOrb-Lvl1, CritOrb-Lvl1", "What orbs to start every run with");
+            wantedOrbsCfg = Config.Bind("CustomDeck", "Orbs", "StoneOrb-Lvl1, StoneOrb-Lvl1, StoneOrb-Lvl1, Daggorb-Lvl1", "What orbs to start every run with");
             printAvailableContent = Config.Bind("CustomDeck", "Print all available relics and orbs", false);
 
             if (!wantedRelicsCfg.Value.IsNullOrWhiteSpace())
