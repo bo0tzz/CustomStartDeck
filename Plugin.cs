@@ -102,6 +102,7 @@ namespace CustomStartDeck
                 if (gameObject == null)
                 {
                     Debug.LogError("Orb " + str + " does not exist!");
+                    continue;
                 }
                 list.Add(gameObject);
             }
