@@ -19,41 +19,40 @@ For orbs, pick the names from the orbs list below and add them to the `Orbs` opt
 
 ## Available relics  
 Alchemist's Cookbook: PEG_TO_BOMB  
-Ambidextionary: ADDITIONAL_DISCARD
-An Apple A Day: MAX_HEALTH_SMALL
-Buckler: NO_DAMAGE_ON_RELOAD
-Cookie: HEAL_ON_REFRESH_POTION
-Cursed Mask: CONFUSION_RELIC
-Decoy Orb: FREE_RELOAD
-Electropegnet: PEG_MAGNET
-Enhanced Gunpowder: BOMB_SPLASH
-Gardener's Gloves: DAMAGE_BONUS_PLANT_FLAT
-Gift That Keeps Giving: UNPOPPABLE_PEGS
-Heavy Shaft Potion: CRIT_ALSO_REFRESH
-Improved Catalyst: ADDITIONAL_BOMB_DAMAGE
-Light Shaft Potion: REFRESH_ALSO_CRIT
-Lucky Meteorite: BOMB_FORCE_ALWAYS
-Lucky Penny: THREE_CRIT_PEGS
-Matryoshka Shell: MATRYOSHKA
-Monster Training: LOW_HEALTH_INCREASED_DAMAGE
-Overwhammer: NORMAL_ATTACKS_OVERFLOW
-PegBag: THREE_REFRESH_PEGS
-Pocketwatch: INFLIGHT_DAMAGE
-Power Glove: INCREASE_STRENGTH_SMALL
-Rallying Heart: ADDITIONAL_END_BATTLE_HEAL
-Salt Shaker: DAMAGE_BONUS_SLIME_FLAT
-Sand Arrows: ATTACKS_DEAL_BLIND
-Sealed Conviction: NO_DISCARD
-Short Fuse: BOMBS_ONE_HIT
-Specious Ring: BOUNCERS_COUNT
-Spurious Necklace: WALL_BOUNCES_COUNT
-Strange Brew: POTION_PEGS_COUNT
-Suffer the Sling: BASIC_STONE_BONUS_DAMAGE
-Super Boots: SUPER_BOOTS
-Tactical Treat: SHUFFLE_REFRESH_PEG
-Unicorn Horn?: LONGER_AIMER
-Wall Chicken: MAX_HEALTH_MEDIUM
-
+Ambidextionary: ADDITIONAL_DISCARD  
+An Apple A Day: MAX_HEALTH_SMALL  
+Buckler: NO_DAMAGE_ON_RELOAD  
+Cookie: HEAL_ON_REFRESH_POTION  
+Cursed Mask: CONFUSION_RELIC  
+Decoy Orb: FREE_RELOAD  
+Electropegnet: PEG_MAGNET  
+Enhanced Gunpowder: BOMB_SPLASH  
+Gardener's Gloves: DAMAGE_BONUS_PLANT_FLAT  
+Gift That Keeps Giving: UNPOPPABLE_PEGS  
+Heavy Shaft Potion: CRIT_ALSO_REFRESH  
+Improved Catalyst: ADDITIONAL_BOMB_DAMAGE  
+Light Shaft Potion: REFRESH_ALSO_CRIT  
+Lucky Meteorite: BOMB_FORCE_ALWAYS  
+Lucky Penny: THREE_CRIT_PEGS  
+Matryoshka Shell: MATRYOSHKA  
+Monster Training: LOW_HEALTH_INCREASED_DAMAGE  
+Overwhammer: NORMAL_ATTACKS_OVERFLOW  
+PegBag: THREE_REFRESH_PEGS  
+Pocketwatch: INFLIGHT_DAMAGE  
+Power Glove: INCREASE_STRENGTH_SMALL  
+Rallying Heart: ADDITIONAL_END_BATTLE_HEAL  
+Salt Shaker: DAMAGE_BONUS_SLIME_FLAT  
+Sand Arrows: ATTACKS_DEAL_BLIND  
+Sealed Conviction: NO_DISCARD  
+Short Fuse: BOMBS_ONE_HIT  
+Specious Ring: BOUNCERS_COUNT  
+Spurious Necklace: WALL_BOUNCES_COUNT  
+Strange Brew: POTION_PEGS_COUNT  
+Suffer the Sling: BASIC_STONE_BONUS_DAMAGE  
+Super Boots: SUPER_BOOTS  
+Tactical Treat: SHUFFLE_REFRESH_PEG  
+Unicorn Horn?: LONGER_AIMER  
+Wall Chicken: MAX_HEALTH_MEDIUM  s
 
 ## Available orbs
 BlindOrb-Lvl1  
