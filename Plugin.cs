@@ -1,6 +1,7 @@
 ﻿using BepInEx;
 using BepInEx.Configuration;
 using HarmonyLib;
+using I2.Loc;
 using Relics;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,14 +18,17 @@ namespace CustomStartDeck
 
         private ConfigEntry<string> wantedRelicsCfg;
         private ConfigEntry<string> wantedOrbsCfg;
+        private ConfigEntry<bool> printAvailableContent;
 
         public static List<string> wantedRelicEffects = new List<string>();
         public static List<string> wantedOrbs = new List<string>();
+        public static bool printContent;
 
         private void Awake()
         {
             wantedRelicsCfg = Config.Bind("CustomDeck", "Relics", "", "What relics to start every run with");
             wantedOrbsCfg = Config.Bind("CustomDeck", "Orbs", "StoneOrb-Lvl1, StoneOrb-Lvl1, StoneOrb-Lvl1, CritOrb-Lvl1", "What orbs to start every run with");
+            printAvailableContent = Config.Bind("CustomDeck", "Print all available relics and orbs", false);
 
             if (!wantedRelicsCfg.Value.IsNullOrWhiteSpace())
             {
@@ -42,6 +46,22 @@ namespace CustomStartDeck
                 }
             }
 
+            printContent = printAvailableContent.Value;
+
+            
+            if (printContent)
+            {
+                GameObject[] orbs = Resources.LoadAll<GameObject>("Prefabs/Orbs/");
+                List<string> orbTexts = new List<string>();
+                foreach (GameObject orb in orbs)
+                {
+                    orbTexts.Add(orb.name);
+                }
+                orbTexts.Sort();
+                Debug.Log("Available orbs:");
+                orbTexts.ForEach(Debug.Log);
+            }
+
             harmony.PatchAll();
             Logger.LogInfo($"Plugin {PluginInfo.PLUGIN_GUID} is loaded!");
         }
@@ -52,6 +72,16 @@ namespace CustomStartDeck
     {
         public static void Postfix(RelicManager __instance)
         {
+            if (Plugin.printContent)
+            {
+                List<RelicSet> pools = new List<RelicSet>() { __instance._commonRelicPool, __instance._rareRelicPool, __instance._bossRelicPool};
+                List<string> relicStrings = new List<string>();
+                pools.ForEach(pool => pool.relics.ForEach(relic => relicStrings.Add(LocalizationManager.GetTranslation(relic.nameKey) + " - " + relic.effect)));
+                relicStrings.Sort();
+                Debug.Log("Available relics:");
+                relicStrings.ForEach(Debug.Log);
+            }
+
             List<Relic> relics = __instance.FindRelicsByEffects(Plugin.wantedRelicEffects.ToList());
             foreach (Relic relic in relics)
             {
