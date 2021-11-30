@@ -7,7 +7,7 @@ prevent you from creating new savefiles, crash your computer, or set your house 
 
 ## Installation guide
 1. Install the BepInEx modloader according to [this guide](https://docs.bepinex.dev/master/articles/user_guide/installation/unity_mono.html)
-2. Download the CustomStartDeck.dll file [from the latest release](https://github.com/bo0tzz/CustomStartDeck/releases/latest)
+2. Download the CustomStartDeck.dll file [from the latest release](https://github.com/bo0tzz/CustomStartDeck/releases/latest/download/CustomStartDeck.dll)
 3. Place CustomStartDeck.dll in the `BepInEx/plugins` folder, inside the game folder
 
 ## Configuration
