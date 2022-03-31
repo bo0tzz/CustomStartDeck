@@ -3,6 +3,7 @@ using BepInEx.Configuration;
 using HarmonyLib;
 using I2.Loc;
 using Relics;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -82,10 +83,17 @@ namespace CustomStartDeck
                 relicStrings.ForEach(Debug.Log);
             }
 
-            List<Relic> relics = __instance.FindRelicsByEffects(Plugin.wantedRelicEffects.ToList());
-            foreach (Relic relic in relics)
+            foreach (string effectName in Plugin.wantedRelicEffects.ToList())
             {
-                __instance.AddRelic(relic);
+                try
+                {
+                    RelicEffect relicEffect = (RelicEffect) Enum.Parse(typeof(RelicEffect), effectName);
+                    Relic relic = __instance.GetRelicForEffect(relicEffect);
+                    __instance.AddRelic(relic);
+                } catch(ArgumentException ex)
+                {
+                    Debug.LogError("Relic " + effectName + " does not exist!");
+                }
             }
         }
     }
