@@ -113,7 +113,11 @@ namespace CustomStartDeck
                         (RelicEffect)Plugin.GetRelicEffect.Invoke(null, new object[] { effectName }) :
                         (RelicEffect)Enum.Parse(typeof(RelicEffect), effectName);
 
-                    if (relicEffect == RelicEffect.NONE) return;
+                    if (relicEffect == RelicEffect.NONE)
+                    {
+                        Debug.Log($"Cannot Add {effectName}. Effect Evaluates to None.");
+                        return;
+                    }
                     Relic relic = __instance.GetRelicForEffect(relicEffect);
                     __instance.AddRelic(relic);
                 } catch(ArgumentException ex)
