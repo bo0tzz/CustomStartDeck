@@ -84,9 +84,9 @@ BlindOrb-Lvl3
 Bob-Orb-Lvl1  
 Bob-Orb-Lvl2  
 Bob-Orb-Lvl3  
-Bouldorb Lvl1  
-Bouldorb Lvl2  
-Bouldorb Lvl3  
+Bouldorb-Lvl1  
+Bouldorb-Lvl2  
+Bouldorb-Lvl3  
 BrambleBall-Lv1  
 BrambleBall-Lv2  
 BrambleBall-Lv3  
@@ -99,50 +99,51 @@ Daggorb-Lvl3
 DebuffOrb-Lvl1  
 DebuffOrb-Lvl2  
 DebuffOrb-Lvl3  
-Dense Orb Lvl1  
-Dense Orb Lvl2  
-Dense Orb Lvl3  
+Doctorb-Lvl1  
+Doctorb-Lvl2  
+Doctorb-Lvl3  
 Echorb-Lvl1  
 Echorb-Lvl2  
 Echorb-Lvl3  
 Egg-Lvl1  
-FireBall-Lv1  
-FireBall-Lv2  
-FireBall-Lv3  
-GhostOrb - Lvl1  
-GhostOrb - Lvl2  
-GhostOrb - Lvl3  
-Healing Orb-Lv1  
-Healing Orb-Lv2  
-Healing Orb-Lv3  
-IceBall-Lv1  
-IceBall-Lv2  
-IceBall-Lv3  
-LightningBall-Lv1  
-LightningBall-Lv2  
-LightningBall-Lv3  
-Matryoshka Lvl1  
-Matryoshka Lvl2  
-Matryoshka Lvl3  
+FireBall-Lvl1  
+FireBall-Lvl2  
+FireBall-Lvl3  
+GhostOrb-Lvl1  
+GhostOrb-Lvl2  
+GhostOrb-Lvl3  
+IceBall-Lvl1  
+IceBall-Lvl2  
+IceBall-Lvl3  
+LightningBall-Lvl1  
+LightningBall-Lvl2  
+LightningBall-Lvl3  
+Matryoshka-Lvl1  
+Matryoshka-Lvl2  
+Matryoshka-Lvl3  
 Memorb-Lvl1  
 Memorb-Lvl2  
 Memorb-Lvl3  
+Mirrorb-Lvl1  
 Orbelisk-Lvl1  
 Orbelisk-Lvl2  
 Orbelisk-Lvl3  
 Orboros-Lvl1  
 Orboros-Lvl2  
 Orboros-Lvl3  
+Orbsium-Lvl1  
+Orbsium-Lvl2  
+Orbsium-Lvl3  
 Oreb-Lvl1  
 Refreshorb-Lvl1  
 Refreshorb-Lvl2  
 Refreshorb-Lvl3  
-Rubber Orb-lvl1  
-Rubber Orb-lvl2  
-Rubber Orb-lvl3  
-ShuffleOrb-Lv1  
-ShuffleOrb-Lv2  
-ShuffleOrb-Lv3  
+Rubborb-Lvl1  
+Rubborb-Lvl2  
+Rubborb-Lvl3  
+ShuffleOrb-Lvl1  
+ShuffleOrb-Lvl2  
+ShuffleOrb-Lvl3  
 Splatorb-Lvl1  
 Splatorb-Lvl2  
 Splatorb-Lvl3  
