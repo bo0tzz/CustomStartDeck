@@ -33,13 +33,14 @@ namespace CustomStartDeck
 
         private void LoadSoftDependency()
         {
+            //Check Chain Loader to Get Plugin
             hasRelicLib = Chainloader.PluginInfos.TryGetValue("io.github.crazyjackel.RelicLib", out BepInEx.PluginInfo plugin);
             if (!hasRelicLib) return;
 
+            //Find Method for Getting Custom RelicEffects
             Assembly assembly = plugin.Instance.GetType().Assembly;
             Type[] Types = AccessTools.GetTypesFromAssembly(assembly);
             Type register = Types.FirstOrDefault(x => x.Name == "RelicRegister");
-            Debug.Log(register);
             GetRelicEffect = AccessTools.Method(register,"GetCustomRelicEffect");
         }
 
@@ -109,10 +110,12 @@ namespace CustomStartDeck
                 Debug.Log($"Adding {effectName}");
                 try
                 {
+                    //If we have our soft dependency use it to get Relic Effect over Enum Parsing.
                     RelicEffect relicEffect = Plugin.hasRelicLib ?
                         (RelicEffect)Plugin.GetRelicEffect.Invoke(null, new object[] { effectName }) :
                         (RelicEffect)Enum.Parse(typeof(RelicEffect), effectName);
 
+                    //Do not try to add Relic if the Effect is None.
                     if (relicEffect == RelicEffect.NONE)
                     {
                         Debug.Log($"Cannot Add {effectName}. Effect Evaluates to None.");
@@ -120,7 +123,7 @@ namespace CustomStartDeck
                     }
                     Relic relic = __instance.GetRelicForEffect(relicEffect);
                     __instance.AddRelic(relic);
-                } catch(ArgumentException ex)
+                } catch (ArgumentException)
                 {
                     Debug.LogError("Relic " + effectName + " does not exist!");
                 }
