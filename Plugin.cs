@@ -1,4 +1,5 @@
 ﻿using BepInEx;
+using BepInEx.Bootstrap;
 using BepInEx.Configuration;
 using HarmonyLib;
 using I2.Loc;
@@ -6,12 +7,14 @@ using Relics;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using UnityEngine;
 
 namespace CustomStartDeck
 {
     [BepInPlugin(PluginInfo.PLUGIN_GUID, PluginInfo.PLUGIN_NAME, PluginInfo.PLUGIN_VERSION)]
     [BepInIncompatibility("me.bo0tzz.peglin.CustomStartRelics")]
+    [BepInDependency("io.github.crazyjackel.RelicLib", BepInDependency.DependencyFlags.SoftDependency)]
     [BepInProcess("Peglin.exe")]
     public class Plugin : BaseUnityPlugin
     {
@@ -25,11 +28,30 @@ namespace CustomStartDeck
         public static List<string> wantedOrbs = new List<string>();
         public static bool printContent;
 
+        internal static bool hasRelicLib;
+        internal static MethodInfo GetRelicEffect;
+
+        private void LoadSoftDependency()
+        {
+            //Check Chain Loader to Get Plugin
+            hasRelicLib = Chainloader.PluginInfos.TryGetValue("io.github.crazyjackel.RelicLib", out BepInEx.PluginInfo plugin);
+            if (!hasRelicLib) return;
+
+            //Find Method for Getting Custom RelicEffects
+            Assembly assembly = plugin.Instance.GetType().Assembly;
+            Type[] Types = AccessTools.GetTypesFromAssembly(assembly);
+            Type register = Types.FirstOrDefault(x => x.Name == "RelicRegister");
+            GetRelicEffect = AccessTools.Method(register,"GetCustomRelicEffect");
+        }
+
         private void Awake()
         {
             wantedRelicsCfg = Config.Bind("CustomDeck", "Relics", "", "What relics to start every run with");
             wantedOrbsCfg = Config.Bind("CustomDeck", "Orbs", "StoneOrb-Lvl1, StoneOrb-Lvl1, StoneOrb-Lvl1, Daggorb-Lvl1", "What orbs to start every run with");
             printAvailableContent = Config.Bind("CustomDeck", "Print all available relics and orbs", false);
+
+            LoadSoftDependency();
+
 
             if (!wantedRelicsCfg.Value.IsNullOrWhiteSpace())
             {
@@ -85,13 +107,24 @@ namespace CustomStartDeck
 
             foreach (string effectName in Plugin.wantedRelicEffects.ToList())
             {
+                Debug.Log($"Adding {effectName}");
                 try
                 {
-                    RelicEffect relicEffect = (RelicEffect) Enum.Parse(typeof(RelicEffect), effectName);
+                    //If we have our soft dependency use it to get Relic Effect over Enum Parsing.
+                    RelicEffect relicEffect = Plugin.hasRelicLib ?
+                        (RelicEffect)Plugin.GetRelicEffect.Invoke(null, new object[] { effectName }) :
+                        (RelicEffect)Enum.Parse(typeof(RelicEffect), effectName);
+
+                    //Do not try to add Relic if the Effect is None.
+                    if (relicEffect == RelicEffect.NONE)
+                    {
+                        Debug.Log($"Cannot Add {effectName}. Effect Evaluates to None.");
+                        return;
+                    }
                     Relic relic = __instance.GetRelicForEffect(relicEffect);
                     if (relic == null) relic = __instance._rareScenarioRelics.relics.Find(r => r.effect == relicEffect);
                     __instance.AddRelic(relic);
-                } catch(ArgumentException ex)
+                } catch (ArgumentException)
                 {
                     Debug.LogError("Relic " + effectName + " does not exist!");
                 }
