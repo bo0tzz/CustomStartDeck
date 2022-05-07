@@ -29,25 +29,27 @@ namespace CustomStartDeck
         public static bool printContent;
 
         internal static bool hasRelicLib;
-        internal static MethodInfo GetRelicEffect;
+        internal static MethodInfo GetCustomRelicEffect;
 
         private void LoadSoftDependency()
         {
             //Check Chain Loader to Get Plugin
-            hasRelicLib = Chainloader.PluginInfos.TryGetValue("io.github.crazyjackel.RelicLib", out BepInEx.PluginInfo plugin);
+            hasRelicLib =
+                Chainloader.PluginInfos.TryGetValue("io.github.crazyjackel.RelicLib", out BepInEx.PluginInfo plugin);
             if (!hasRelicLib) return;
 
             //Find Method for Getting Custom RelicEffects
             Assembly assembly = plugin.Instance.GetType().Assembly;
             Type[] Types = AccessTools.GetTypesFromAssembly(assembly);
             Type register = Types.FirstOrDefault(x => x.Name == "RelicRegister");
-            GetRelicEffect = AccessTools.Method(register,"GetCustomRelicEffect");
+            GetCustomRelicEffect = AccessTools.Method(register, "GetCustomRelicEffect");
         }
 
         private void Awake()
         {
             wantedRelicsCfg = Config.Bind("CustomDeck", "Relics", "", "What relics to start every run with");
-            wantedOrbsCfg = Config.Bind("CustomDeck", "Orbs", "StoneOrb-Lvl1, StoneOrb-Lvl1, StoneOrb-Lvl1, Daggorb-Lvl1", "What orbs to start every run with");
+            wantedOrbsCfg = Config.Bind("CustomDeck", "Orbs",
+                "StoneOrb-Lvl1, StoneOrb-Lvl1, StoneOrb-Lvl1, Daggorb-Lvl1", "What orbs to start every run with");
             printAvailableContent = Config.Bind("CustomDeck", "Print all available relics and orbs", false);
 
             LoadSoftDependency();
@@ -71,7 +73,7 @@ namespace CustomStartDeck
 
             printContent = printAvailableContent.Value;
 
-            
+
             if (printContent)
             {
                 GameObject[] orbs = Resources.LoadAll<GameObject>("Prefabs/Orbs/");
@@ -80,6 +82,7 @@ namespace CustomStartDeck
                 {
                     orbTexts.Add(orb.name);
                 }
+
                 orbTexts.Sort();
                 Debug.Log("Available orbs:");
                 orbTexts.ForEach(Debug.Log);
@@ -95,43 +98,40 @@ namespace CustomStartDeck
     {
         public static void Postfix(RelicManager __instance)
         {
+            List<Relic> allRelics = __instance._commonRelicPool._relics
+                .Union(__instance._rareRelicPool._relics)
+                .Union(__instance._rareScenarioRelics._relics)
+                .Union(__instance._bossRelicPool._relics)
+                .ToList();
+
+
             if (Plugin.printContent)
             {
-                List<RelicSet> pools = new List<RelicSet>() { __instance._commonRelicPool, __instance._rareRelicPool, __instance._rareScenarioRelics, __instance._bossRelicPool};
-                List<string> relicStrings = new List<string>();
-                pools.ForEach(pool => pool.relics.ForEach(relic => relicStrings.Add(LocalizationManager.GetTranslation(relic.nameKey) + " - " + relic.effect)));
-                relicStrings.Sort();
+                var strings = allRelics.Select(r => $"{LocalizationManager.GetTranslation(r.nameKey)} - {r.effect}  ").ToList();
+                strings.Sort();
                 Debug.Log("Available relics:");
-                relicStrings.ForEach(Debug.Log);
+                strings.ForEach(Debug.Log);
             }
 
             foreach (string effectName in Plugin.wantedRelicEffects.ToList())
             {
-                Debug.Log($"Adding {effectName}");
-                try
-                {
-                    //If we have our soft dependency use it to get Relic Effect over Enum Parsing.
-                    RelicEffect relicEffect = Plugin.hasRelicLib ?
-                        (RelicEffect)Plugin.GetRelicEffect.Invoke(null, new object[] { effectName }) :
-                        (RelicEffect)Enum.Parse(typeof(RelicEffect), effectName);
+                //If we have our soft dependency use it to get Relic Effect over Enum Parsing.
+                RelicEffect relicEffect = Plugin.hasRelicLib
+                    ? (RelicEffect) Plugin.GetCustomRelicEffect.Invoke(null, new object[] {effectName})
+                    : (RelicEffect) Enum.Parse(typeof(RelicEffect), effectName);
 
-                    //Do not try to add Relic if the Effect is None.
-                    if (relicEffect == RelicEffect.NONE)
-                    {
-                        Debug.Log($"Cannot Add {effectName}. Effect Evaluates to None.");
-                        return;
-                    }
-                    Relic relic = __instance.GetRelicForEffect(relicEffect);
-                    if (relic == null) relic = __instance._rareScenarioRelics.relics.Find(r => r.effect == relicEffect);
-                    __instance.AddRelic(relic);
-                } catch (ArgumentException)
+                Relic relic = allRelics.Find(r => r.effect == relicEffect);
+                if (relic == null)
                 {
-                    Debug.LogError("Relic " + effectName + " does not exist!");
+                    Debug.LogError($"Relic {effectName} does not exist!");
+                    return;
                 }
+
+                __instance.AddRelic(relic);
             }
         }
     }
-    
+
     [HarmonyPatch(typeof(GameInit), "Start")]
     public class GameInitPatch
     {
@@ -146,8 +146,10 @@ namespace CustomStartDeck
                     Debug.LogError("Orb " + str + " does not exist!");
                     continue;
                 }
+
                 list.Add(gameObject);
             }
+
             ____deckManager.InstantiateDeck(list);
         }
     }
