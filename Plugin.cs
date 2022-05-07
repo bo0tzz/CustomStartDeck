@@ -75,7 +75,7 @@ namespace CustomStartDeck
         {
             if (Plugin.printContent)
             {
-                List<RelicSet> pools = new List<RelicSet>() { __instance._commonRelicPool, __instance._rareRelicPool, __instance._bossRelicPool};
+                List<RelicSet> pools = new List<RelicSet>() { __instance._commonRelicPool, __instance._rareRelicPool, __instance._rareScenarioRelics, __instance._bossRelicPool};
                 List<string> relicStrings = new List<string>();
                 pools.ForEach(pool => pool.relics.ForEach(relic => relicStrings.Add(LocalizationManager.GetTranslation(relic.nameKey) + " - " + relic.effect)));
                 relicStrings.Sort();
@@ -89,6 +89,7 @@ namespace CustomStartDeck
                 {
                     RelicEffect relicEffect = (RelicEffect) Enum.Parse(typeof(RelicEffect), effectName);
                     Relic relic = __instance.GetRelicForEffect(relicEffect);
+                    if (relic == null) relic = __instance._rareScenarioRelics.relics.Find(r => r.effect == relicEffect);
                     __instance.AddRelic(relic);
                 } catch(ArgumentException ex)
                 {
