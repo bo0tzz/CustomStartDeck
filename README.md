@@ -31,6 +31,7 @@ Cookie: HEAL_ON_REFRESH_POTION
 Critsomallos Fleece: CRITS_STACK  
 Cursed Mask: CONFUSION_RELIC  
 Decoy Orb: FREE_RELOAD  
+Dumb Bell: STR_ON_RELOAD  
 Echo Chamber: ALL_ATTACKS_ECHO  
 Electropegnet: PEG_MAGNET  
 Enhanced Gunpowder: BOMB_SPLASH  
@@ -43,6 +44,7 @@ Grabby Hand: FLYING_HORIZONTAL_PIERCE
 Heavy Shaft Potion: CRIT_ALSO_REFRESH  
 Improved Catalyst: ADDITIONAL_BOMB_DAMAGE  
 Inconspicuous Ring: BOUNCERS_COUNT  
+Infernal Ingot: LIFESTEAL_PEG_HITS  
 Kinetic Meteorite: BOMB_FORCE_ALWAYS  
 Knife's Edge: LOW_HEALTH_GUARANTEED_CRIT  
 Light Shaft Potion: REFRESH_ALSO_CRIT  
@@ -59,6 +61,7 @@ Powder Collector: SPAWN_BOMB_ON_PEG_HITS
 Power Glove: INCREASE_STRENGTH_SMALL  
 Rallying Heart: ADDITIONAL_END_BATTLE_HEAL  
 Recombombulator: BOMBS_RESPAWN  
+Refreshing Punch: REFRESH_PEGS_SPLASH  
 Ring of Indignation: DAMAGE_RETURN  
 Ring of Reuse: ALL_ORBS_PERSIST  
 Salt Shaker: DAMAGE_BONUS_SLIME_FLAT  
@@ -75,7 +78,8 @@ Unicorn Horn?: LONGER_AIMER
 Wall Chicken: MAX_HEALTH_MEDIUM  
 Wand of Skulltimate Power: DOUBLE_DAMAGE_HURT_ON_PEG  
 Weaponized Envy: DAMAGE_TARGETED_ON_HEAL  
-Well-Done Steak: HEAL_ON_RELOAD   
+Weighted Chip: SLOT_MULTIPLIERS  
+Well-Done Steak: HEAL_ON_RELOAD
 
 ## Available orbs
 BlindOrb-Lvl1  
