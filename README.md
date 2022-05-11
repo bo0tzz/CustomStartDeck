@@ -1,5 +1,5 @@
 ﻿# CustomStartDeck  
-This is a mod for the Peglin Demo that lets you customize your
+This is a mod for Peglin that lets you customize your
 starting loadouts.
 
 This mod is imperfect and comes with no warranties. It may break your game,
