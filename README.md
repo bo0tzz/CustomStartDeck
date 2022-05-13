@@ -81,6 +81,10 @@ Weaponized Envy: DAMAGE_TARGETED_ON_HEAL
 Weighted Chip: SLOT_MULTIPLIERS  
 Well-Done Steak: HEAL_ON_RELOAD
 
+### Special cases
+Pre-nerf Kinetic Meteorite: LEGACY_METEORITE  
+Note that in game this will look like the new meteorite relic, but it will act like the old one.
+
 ## Available orbs
 BlindOrb-Lvl1  
 BlindOrb-Lvl2  

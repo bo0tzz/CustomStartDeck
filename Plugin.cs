@@ -112,6 +112,12 @@ namespace CustomStartDeck
                 Debug.Log("Available relics:");
                 strings.ForEach(Debug.Log);
             }
+            
+            //Special case
+            Relic meteorite = __instance.GetRelicForEffect(RelicEffect.BOMB_FORCE_ALWAYS);
+            Relic legacyMeteorite = ScriptableObject.Instantiate(meteorite);
+            legacyMeteorite.effect = RelicEffect.LEGACY_METEORITE;
+            allRelics.Add(legacyMeteorite);
 
             foreach (string effectName in Plugin.wantedRelicEffects.ToList())
             {
