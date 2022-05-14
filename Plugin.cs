@@ -116,6 +116,8 @@ namespace CustomStartDeck
             //Special case
             Relic meteorite = __instance.GetRelicForEffect(RelicEffect.BOMB_FORCE_ALWAYS);
             Relic legacyMeteorite = ScriptableObject.Instantiate(meteorite);
+            legacyMeteorite.locKey = "bomb_force_always_legacy";
+            legacyMeteorite.descMod = "";
             legacyMeteorite.effect = RelicEffect.LEGACY_METEORITE;
             allRelics.Add(legacyMeteorite);
 
