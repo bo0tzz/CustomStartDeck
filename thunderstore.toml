@@ -1,0 +1,27 @@
+[config]
+schemaVersion = "0.0.1"
+
+[package]
+namespace = "bo0tzz"
+name = "CustomStartDeck"
+versionNumber = "1.4.1"
+description = "Customize your starting orbs and relics"
+websiteUrl = "https://github.com/bo0tzz/CustomStartDeck"
+containsNsfwContent = false
+
+[package.dependencies]
+BepInEx-BepInExPack_Peglin = "5.4.1900"
+
+[build]
+icon = "./icon.png"
+readme = "./README.md"
+outdir = "./dist"
+
+[[build.copy]]
+source = "./dist"
+target = ""
+
+[publish]
+repository = "https://thunderstore.io"
+communities = ["peglin"]
+categories = []

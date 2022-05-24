@@ -6,9 +6,8 @@ This mod is imperfect and comes with no warranties. It may break your game,
 prevent you from creating new savefiles, crash your computer, or set your house on fire.
 
 ## Installation guide
-1. Install the BepInEx modloader according to [this guide](https://docs.bepinex.dev/articles/user_guide/installation/index.html)
-2. Download the CustomStartDeck.dll file [from the latest release](https://github.com/bo0tzz/CustomStartDeck/releases/latest/download/CustomStartDeck.dll)
-3. Place CustomStartDeck.dll in the `BepInEx/plugins` folder, inside the game folder
+You can download the mod from [Thunderstore](https://peglin.thunderstore.io/).   
+See https://mods.pegl.in/ for links to the Discord and more.
 
 ## Configuration
 The mod is configured via the `BepInEx/config/me.bo0tzz.peglin.CustomStartDeck.cfg` file. 
