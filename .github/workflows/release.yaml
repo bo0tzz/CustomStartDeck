@@ -1,0 +1,19 @@
+name: Release
+
+on:
+  release:
+    types: [released]
+    
+env:
+  THUNDERSTORE_NAMESPACE: bo0tzz
+  MOD_NAME: CustomStartDeck
+    
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-dotnet@v1.7.2
+      - run: dotnet tool install --global tcli --version 0.1.4
+      - run: wget ${{ github.event.release.assets[0].browser_download_url }}
+      - run: tcli publish --file $THUNDERSTORE_NAMESPACE-$MOD_NAME-*.zip --token ${{ secrets.THUNDERSTORE_TOKEN }}
