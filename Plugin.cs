@@ -123,6 +123,8 @@ namespace CustomStartDeck
 
             foreach (string effectName in Plugin.wantedRelicEffects.ToList())
             {
+                if (effectName.IsNullOrWhiteSpace()) return;
+                
                 //If we have our soft dependency use it to get Relic Effect over Enum Parsing.
                 RelicEffect relicEffect = Plugin.hasRelicLib
                     ? (RelicEffect) Plugin.GetCustomRelicEffect.Invoke(null, new object[] {effectName})
