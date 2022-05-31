@@ -10,9 +10,8 @@ You can download the mod from [Thunderstore](https://peglin.thunderstore.io/).
 See https://mods.pegl.in/ for links to the Discord and more.
 
 ## Configuration
-The mod is configured via the `BepInEx/config/me.bo0tzz.peglin.CustomStartDeck.cfg` file.  
-For relics, pick the all-caps values from the relics list below and add them, comma separated,
-to the `Relics` option in the config file.  
+The mod is configured via the `me.bo0tzz.peglin.CustomStartDeck.cfg` file. If you're using Thunderstore Mod Manager, you can use the Config Editor in the menu.   
+For relics, pick the all-caps values from the relics list below and add them, comma separated, to the `Relics` option in the config file.  
 For orbs, pick the names from the orbs list below and add them to the `Orbs` option.
 
 ## Available relics  
