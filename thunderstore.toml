@@ -4,7 +4,7 @@ schemaVersion = "0.0.1"
 [package]
 namespace = "bo0tzz"
 name = "CustomStartDeck"
-versionNumber = "1.4.4"
+versionNumber = "1.4.5"
 description = "Customize your starting orbs and relics"
 websiteUrl = "https://github.com/bo0tzz/CustomStartDeck"
 containsNsfwContent = false
