@@ -29,7 +29,7 @@ namespace CustomStartDeck
         public static bool printContent;
 
         internal static bool hasRelicLib;
-        internal static MethodInfo GetCustomRelicEffect;
+        internal static MethodInfo TryGetCustomRelicEffect;
 
         private void LoadSoftDependency()
         {
@@ -42,7 +42,7 @@ namespace CustomStartDeck
             Assembly assembly = plugin.Instance.GetType().Assembly;
             Type[] Types = AccessTools.GetTypesFromAssembly(assembly);
             Type register = Types.FirstOrDefault(x => x.Name == "RelicRegister");
-            GetCustomRelicEffect = AccessTools.Method(register, "GetCustomRelicEffect");
+            TryGetCustomRelicEffect = AccessTools.Method(register, "TryGetCustomRelicEffect");
         }
 
         private void Awake()
@@ -112,7 +112,7 @@ namespace CustomStartDeck
                 Debug.Log("Available relics:");
                 strings.ForEach(Debug.Log);
             }
-            
+
             //Special case
             Relic meteorite = __instance.GetRelicForEffect(RelicEffect.BOMB_FORCE_ALWAYS);
             Relic legacyMeteorite = ScriptableObject.Instantiate(meteorite);
@@ -124,11 +124,12 @@ namespace CustomStartDeck
             foreach (string effectName in Plugin.wantedRelicEffects.ToList())
             {
                 if (effectName.IsNullOrWhiteSpace()) return;
-                
+
                 //If we have our soft dependency use it to get Relic Effect over Enum Parsing.
-                RelicEffect relicEffect = Plugin.hasRelicLib
-                    ? (RelicEffect) Plugin.GetCustomRelicEffect.Invoke(null, new object[] {effectName})
-                    : (RelicEffect) Enum.Parse(typeof(RelicEffect), effectName);
+                object[] arguments = new object[] { effectName, null };
+                RelicEffect relicEffect = (Plugin.hasRelicLib && (bool)Plugin.TryGetCustomRelicEffect.Invoke(null, arguments) && arguments[1] is RelicEffect) 
+                    ? (RelicEffect)arguments[1] 
+                    : (RelicEffect)Enum.Parse(typeof(RelicEffect), effectName);
 
                 Relic relic = allRelics.Find(r => r.effect == relicEffect);
                 if (relic == null)
